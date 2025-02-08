@@ -12,4 +12,9 @@ class CourseController extends Controller
     {
         return response()->json(Course::all(), Response::HTTP_OK);
     }
+
+    public function show(Course $course)
+    {
+        return response()->json($course, Response::HTTP_OK);
+    }
 }
