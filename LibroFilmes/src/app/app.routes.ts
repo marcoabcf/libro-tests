@@ -4,11 +4,6 @@ import { MovieListComponent } from './features/movie/movie-list/movie-list.compo
 
 export const routes: Routes = [
   {
-    path: '',
-    redirectTo: 'movies',
-    pathMatch: 'full',
-  },
-  {
     path: 'movies',
     component: MovieListComponent,
   },

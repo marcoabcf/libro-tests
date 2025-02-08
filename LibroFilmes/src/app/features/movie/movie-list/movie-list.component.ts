@@ -30,7 +30,6 @@ export class MovieListComponent implements OnInit {
   }
 
   goToMovieDetails(movie: Movie) {
-    console.log(movie);
-    this.router.navigate(['/movies', movie.id], { state: { movie } });
+    this.router.navigate(['/movie', movie.id], { state: { movie } });
   }
 }

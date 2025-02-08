@@ -18,7 +18,9 @@ export class MovieService {
 
   getPopularMovies(): Observable<Movie[]> {
     return this.http
-      .get<TMDB>(`${this.apiUrl}/movie/popular?api_key=${this.apiKey}`)
+      .get<TMDB>(
+        `${this.apiUrl}/movie/popular?api_key=${this.apiKey}&language=pt-BR`
+      )
       .pipe(
         map(({ results }: TMDB) =>
           results.map((movie: Movie) => ({

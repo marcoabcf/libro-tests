@@ -14,7 +14,7 @@ import { MovieService } from '../movie.service';
 })
 export class MovieDetailComponent implements OnInit {
   bgImage: string = '';
-  movie: Movie | null = null;
+  movie!: Movie;
 
   constructor(
     private movieService: MovieService,
@@ -22,14 +22,6 @@ export class MovieDetailComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    const stateMovie = history.state.movie;
-
-    if (stateMovie) {
-      this.movie = stateMovie;
-      this.setBgImage(stateMovie.backdrop_image);
-      return;
-    }
-
     const movieId = this.route.snapshot.paramMap.get('id');
 
     if (movieId) {
