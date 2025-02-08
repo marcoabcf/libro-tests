@@ -12,6 +12,10 @@ class Course extends Model
     /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, HasUuids;
 
+    public $incrementing = false;
+
+    protected $keyType = 'string';
+
     protected $fillable = ['title', 'description'];
 
     public function index()
