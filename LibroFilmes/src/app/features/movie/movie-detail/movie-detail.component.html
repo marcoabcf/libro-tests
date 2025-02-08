@@ -1,0 +1,37 @@
+<div class="movie-details-container" *ngIf="movie">
+  <div
+    class="movie-details-backdrop"
+    [ngStyle]="{ 'background-image': bgImage }"
+  ></div>
+
+  <div class="movie-content">
+    <div class="poster">
+      <img [src]="movie.image" [alt]="movie.title" />
+
+      <div class="info">
+        <span class="badge">{{ movie.release_date | date : "yyyy" }}</span>
+        <span class="badge">{{ movie.vote_average | number : "1.1-1" }} ★</span>
+        <span class="badge">{{ movie.runtime }} min</span>
+        <span class="badge">{{ movie.original_language | uppercase }}</span>
+      </div>
+    </div>
+
+    <div class="details">
+      <h1>{{ movie.title }}</h1>
+      <p class="overview">{{ movie.overview || "Sinopse não disponível." }}</p>
+
+      <div class="extra-info">
+        <p *ngIf="movie.genres.length > 0">
+          <strong>Gêneros:</strong>
+          {{ getGenres() }}
+        </p>
+        <p>
+          <strong>Popularidade:</strong>
+          {{ movie.popularity | number : "1.0-0" }}
+        </p>
+        <p><strong>Orçamento:</strong> {{ movie.budget | currency : "USD" }}</p>
+        <p><strong>Receita:</strong> {{ movie.revenue | currency : "USD" }}</p>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,11 @@
+<mat-toolbar color="secondary">
+  <span class="logo" routerLink="/movies">🎬 LibroFilmes</span>
+
+  <button mat-icon-button *ngIf="isMovieDetails" (click)="goBack()">
+    <mat-icon class="white-icon">reply</mat-icon>
+  </button>
+</mat-toolbar>
+
+<main class="content">
+  <router-outlet></router-outlet>
+</main>

@@ -1,0 +1,20 @@
+<div class="movie-grid">
+  @if(movies.length > 0){
+
+  <div class="movie-card" *ngFor="let movie of movies">
+    <mat-card (click)="goToMovieDetails(movie)">
+      <img
+        mat-card-image
+        [src]="movie.image"
+        alt="{{ movie.title }}"
+        [ngClass]="{ loaded: !loadingList }"
+      />
+      <mat-card-content>
+        <h3>{{ movie.title }}</h3>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  } @else {
+  <h3 class="nothing">Não foi encontrado nenhum filme popular!</h3>
+  }
+</div>
