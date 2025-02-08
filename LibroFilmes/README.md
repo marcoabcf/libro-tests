@@ -1,27 +1,49 @@
 # LibroFilmes
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.11.
+LibroFilmes é uma aplicação web que apresenta um catálogo de filmes populares, permitindo visualizar detalhes de cada filme.
 
-## Development server
+## Tecnologias Utilizadas
+- Angular 18
+- Angular Material
+- TypeScript
+- SCSS
+- The Movie Database (TMDb) API
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Requisitos
+- Node.js 18+
+- Angular CLI 18+
+- Conta na API do TMDb para obter uma chave de acesso
 
-## Code scaffolding
+## Instalação e Execução
+1. **Instale as dependências:**
+   ```sh
+   yarn install
+   ```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+3. **Inicie o servidor de desenvolvimento:**
+   ```sh
+   yarn start
+   ```
 
-## Build
+5. **Acesse no navegador:**
+   ```
+   http://localhost:4200
+   ```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Estrutura do Projeto
+```
+/src
+  ├── app
+  │   ├── shared  # Services, Models ou Componentes que sejam compartilhados
+  │   ├── features        # Páginas principais (Listagem e Detalhes)
+  │   ├── app.component.ts  # Componente principal
+  │   ├── app.routes.ts     # Configuração das rotas
+  ├── enviroments
+```
 
-## Running unit tests
+## Funcionalidades
+- 📌 Listagem de filmes populares
+- 🔍 Detalhamento de um filme
+- 📱 Responsividade para dispositivos móveis
+- 🎨 Interface moderna
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.

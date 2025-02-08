@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
+import { environment } from '../../../enviroments/enviroment';
 import { TMDB } from '../../shared/models/tmdb.model';
 import { Movie } from './movie.model';
 
@@ -9,7 +10,7 @@ import { Movie } from './movie.model';
 })
 export class MovieService {
   private apiUrl = 'https://api.themoviedb.org/3';
-  private apiKey = 'f6e28bfe502b99460f11d652afef649f';
+  private apiKey = environment.tmdbApiKey;
 
   private readonly imageBaseUrl = 'https://image.tmdb.org/t/p/w500';
   private readonly imageBackdropBaseUrl = 'https://image.tmdb.org/t/p/w1280';
