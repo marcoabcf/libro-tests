@@ -82,4 +82,11 @@ class StudentController extends Controller
 
         return response()->json($students);
     }
+
+    public function report()
+    {
+        $report = $this->studentBusiness->report();
+
+        return response()->json($report);
+    }
 }

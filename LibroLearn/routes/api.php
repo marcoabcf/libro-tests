@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Route;
 Route::apiResource('courses', CourseController::class);
 
 Route::get('students/search', [StudentController::class, 'search']);
+Route::get('students/report', [StudentController::class, 'report']);
 Route::apiResource('students', StudentController::class);
 
 Route::apiResource('registrations', RegistrationController::class);

@@ -3,6 +3,7 @@
 namespace App\Business;
 
 use App\Models\Student as StudentModel;
+use Carbon\Carbon;
 
 /**
  * Class StudentBusiness
@@ -101,6 +102,45 @@ class StudentBusiness extends Business
             }
 
             return $query->get();
+        } catch (\Exception $e) {
+            throw $e;
+        }
+    }
+
+
+    /**
+     * Report of Students.
+     *
+     * @param $params
+     *
+     * @return mixed
+     * @throws \Exception
+     */
+    public function report()
+    {
+        try {
+            $ageGroup = [
+                'minor_15' => [Carbon::now()->subYears(15)->toDateString(), Carbon::now()->toDateString()],
+                'between_15_18' => [Carbon::now()->subYears(18)->toDateString(), Carbon::now()->subYears(15)->toDateString()],
+                'between_19_24' => [Carbon::now()->subYears(24)->toDateString(), Carbon::now()->subYears(19)->toDateString()],
+                'between_25_30' => [Carbon::now()->subYears(30)->toDateString(), Carbon::now()->subYears(25)->toDateString()],
+                'major_30' => [Carbon::now()->subYears(100)->toDateString(), Carbon::now()->subYears(30)->toDateString()],
+            ];
+
+            $report = [];
+
+            foreach ($ageGroup as $group => [$initial, $end]) {
+                $report[$group] = StudentModel::selectRaw('gender, COUNT(*) as total')
+                    ->whereBetween('birth_date', [$end, $initial])
+                    ->groupBy('gender')
+                    ->get()
+                    ->keyBy('gender')
+                    ->map(function ($item) {
+                        return $item->total;
+                    });
+            }
+
+            return $report;
         } catch (\Exception $e) {
             throw $e;
         }
