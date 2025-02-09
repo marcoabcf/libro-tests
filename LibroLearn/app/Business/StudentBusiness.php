@@ -78,4 +78,31 @@ class StudentBusiness extends Business
             throw $e;
         }
     }
+
+    /**
+     * Search a Student by params.
+     *
+     * @param $params
+     *
+     * @return mixed
+     * @throws \Exception
+     */
+    public function search(array $params)
+    {
+        try {
+            $query = StudentModel::query();
+
+            if ($params['name']) {
+                $query->where('name', 'like', '%' . $params['name'] . '%');
+            }
+
+            if ($params['name']) {
+                $query->where('email', 'like', '%' . $params['email'] . '%');
+            }
+
+            return $query->get();
+        } catch (\Exception $e) {
+            throw $e;
+        }
+    }
 }

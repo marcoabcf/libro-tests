@@ -16,4 +16,9 @@ class Course extends Model
     protected $keyType = 'string';
 
     protected $fillable = ['title', 'description'];
+
+    public function registrations()
+    {
+        return $this->hasMany(Registration::class);
+    }
 }

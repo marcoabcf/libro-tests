@@ -16,4 +16,9 @@ class Student extends Model
     protected $keyType = 'string';
 
     protected $fillable = ['name', 'email', 'gender', 'birth_date'];
+
+    public function registrations()
+    {
+        return $this->hasMany(Registration::class);
+    }
 }

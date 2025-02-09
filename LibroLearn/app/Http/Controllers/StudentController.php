@@ -70,4 +70,16 @@ class StudentController extends Controller
 
         return response('Student ' . $id . ' deleted!', );
     }
+
+    public function search(Request $request)
+    {
+        $data = $request->validate([
+            'name' => 'nullable|string',
+            'email' => 'nullable|email',
+        ]);
+
+        $students = $this->studentBusiness->search($data);
+
+        return response()->json($students);
+    }
 }
