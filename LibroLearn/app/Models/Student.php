@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Course extends Model
+class Student extends Model
 {
     use HasFactory, HasUuids, SoftDeletes;
 
@@ -15,5 +15,5 @@ class Course extends Model
 
     protected $keyType = 'string';
 
-    protected $fillable = ['title', 'description'];
+    protected $fillable = ['name', 'email', 'gender', 'birth_date'];
 }

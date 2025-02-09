@@ -28,6 +28,23 @@ class CourseBusiness extends Business
     }
 
     /**
+     * Create a Course by params.
+     *
+     * @param $params
+     *
+     * @return mixed
+     * @throws \Exception
+     */
+    public function create(array $params)
+    {
+        try {
+            return CourseModel::create($params);
+        } catch (\Exception $e) {
+            throw $e;
+        }
+    }
+
+    /**
      * Update a Course by params.
      *
      * @param $course

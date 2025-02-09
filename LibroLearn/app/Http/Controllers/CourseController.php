@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Business\CourseBusiness;
 use App\Models\Course;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class CourseController extends Controller
 {
@@ -31,6 +32,18 @@ class CourseController extends Controller
     public function show(Course $course)
     {
         return response()->json($course);
+    }
+
+    public function store(Request $request)
+    {
+        $data = $request->validate([
+            'title' => 'required|string|max:255',
+            'description' => 'nullable|string',
+        ]);
+
+        $course = $this->courseBusiness->create($data);
+
+        return response()->json($course, Response::HTTP_CREATED);
     }
 
     public function update(Request $request, Course $course)
