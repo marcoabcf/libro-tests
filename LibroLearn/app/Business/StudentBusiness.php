@@ -93,11 +93,11 @@ class StudentBusiness extends Business
         try {
             $query = StudentModel::query();
 
-            if ($params['name']) {
+            if (!is_null($params['name'])) {
                 $query->where('name', 'like', '%' . $params['name'] . '%');
             }
 
-            if ($params['name']) {
+            if (!is_null($params['email'])) {
                 $query->where('email', 'like', '%' . $params['email'] . '%');
             }
 
