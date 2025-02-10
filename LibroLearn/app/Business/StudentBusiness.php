@@ -119,12 +119,14 @@ class StudentBusiness extends Business
     public function report()
     {
         try {
+            $now = Carbon::now();
+
             $ageGroup = [
-                'minor_15' => [Carbon::now()->subYears(15)->toDateString(), Carbon::now()->toDateString()],
-                'between_15_18' => [Carbon::now()->subYears(18)->toDateString(), Carbon::now()->subYears(15)->toDateString()],
-                'between_19_24' => [Carbon::now()->subYears(24)->toDateString(), Carbon::now()->subYears(19)->toDateString()],
-                'between_25_30' => [Carbon::now()->subYears(30)->toDateString(), Carbon::now()->subYears(25)->toDateString()],
-                'major_30' => [Carbon::now()->subYears(100)->toDateString(), Carbon::now()->subYears(30)->toDateString()],
+                'minor_15' => [$now->subYears(15)->toDateString(), $now->toDateString()],
+                'between_15_18' => [$now->subYears(18)->toDateString(), $now->subYears(15)->toDateString()],
+                'between_19_24' => [$now->subYears(24)->toDateString(), $now->subYears(19)->toDateString()],
+                'between_25_30' => [$now->subYears(30)->toDateString(), $now->subYears(25)->toDateString()],
+                'major_30' => [$now->subYears(100)->toDateString(), $now->subYears(30)->toDateString()],
             ];
 
             $report = [];
